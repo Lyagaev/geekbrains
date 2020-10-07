@@ -74,7 +74,6 @@ public class GameCanvas extends JPanel {
         else
             colorB =+ colorB+counterB*0.2f;
 
-        System.out.println(colorR+ "    "+colorG+ "    "+colorB+ "    ");
         Color color = new Color(
                 (int) colorR, // R
                 (int) colorG, // G
