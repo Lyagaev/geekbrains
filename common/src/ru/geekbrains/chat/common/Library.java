@@ -1,5 +1,8 @@
 package ru.geekbrains.chat.common;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class Library {
     /*
     /auth_request±login±password
@@ -39,6 +42,35 @@ public class Library {
     public static String getTypeBroadcast(String src, String message) {
         return TYPE_BROADCAST + DELIMITER + System.currentTimeMillis() +
                 DELIMITER + src + DELIMITER + message;
+    }
+
+    public static String getFormatMsg(String msg)
+    {
+        String[] arr = msg.split(Library.DELIMITER);
+        if (arr[0].equals(Library.TYPE_BROADCAST) && arr.length>3)
+        {
+            DateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm:ss");
+            String date=DATE_FORMAT.format(Long.parseLong(arr[1])).toString();
+            String nicName=arr[2];
+            String msgText=arr[3];
+            return String.format("%s(%s): %s", date, nicName, msgText);
+        }
+        if (arr[0].equals(Library.AUTH_ACCEPT) && arr.length>1)
+        {
+            String nicName=arr[1];
+            return String.format("(Server): %s присоединился к чату", nicName);
+        }
+        if (arr[0].equals(Library.MSG_FORMAT_ERROR) && arr.length>1)
+        {
+            String nicName=arr[1];
+            return String.format("(Server): %s отправил неизвестную команду", nicName);
+        }
+        if (arr[0].equals(Library.AUTH_DENIED))
+        {
+            return String.format("Ошибка авторизации, неверное имя пользователя или пароль");
+        }
+
+        return "";
     }
 
 

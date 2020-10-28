@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.Socket;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 
 
 public class ClientGUI extends JFrame implements ActionListener,
@@ -169,7 +172,7 @@ public class ClientGUI extends JFrame implements ActionListener,
 
     @Override
     public void onSocketStart(SocketThread thread, Socket socket) {
-        putLog("Start");
+        putLog("Соединение с сервером");
     }
 
     @Override
@@ -189,7 +192,7 @@ public class ClientGUI extends JFrame implements ActionListener,
 
     @Override
     public void onReceiveString(SocketThread thread, Socket socket, String msg) {
-        putLog(msg);
+        putLog(Library.getFormatMsg(msg));
     }
 
     @Override
