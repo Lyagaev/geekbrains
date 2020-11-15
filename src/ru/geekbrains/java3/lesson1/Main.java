@@ -17,7 +17,7 @@ public class Main {
         Box<Apple> appleBox2 = new Box<>();
 
         orangeBox1.addFruit(new Orange(1.5f),10);
-        orangeBox2.addFruit(new Orange(1.5f),12);
+        orangeBox2.addFruit(new Orange(1.5f),10);
         appleBox1.addFruit(new Apple(1f),8);
         appleBox2.addFruit(new Apple(1f),4);
 
@@ -31,7 +31,7 @@ public class Main {
 
         System.out.println("Box 1 equals box 3: "+orangeBox1.compare(appleBox1));
         System.out.println("Box 2 equals box 4: "+orangeBox2.compare(appleBox2));
-
+        System.out.println("Box 1 equals box 2: "+orangeBox1.compare(orangeBox2));
 
 
         orangeBox1.pourTo(orangeBox2);
