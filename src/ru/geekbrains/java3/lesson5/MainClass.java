@@ -13,7 +13,7 @@ public class MainClass {
 
         Car.cdl1= new CountDownLatch(CARS_COUNT);
         Car.cdl2= new CountDownLatch(CARS_COUNT);
-        Car.CAR_WIN=1;
+        Car.CAR_WIN=2;
 
         for (int i = 0; i < cars.length; i++) {
             cars[i] = new Car(race, 20 + (int) (Math.random() * 10));

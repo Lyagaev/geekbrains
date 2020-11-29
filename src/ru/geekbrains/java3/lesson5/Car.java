@@ -7,6 +7,7 @@ import java.util.concurrent.CyclicBarrier;
 public class Car implements Runnable {
     private static int CARS_COUNT;
     public static int CAR_WIN;
+    public static int WIN_PLACE;
     public static CountDownLatch cdl1;
     public static CountDownLatch cdl2;
 
@@ -52,7 +53,8 @@ public class Car implements Runnable {
         if (CAR_WIN>0)
         {
             CAR_WIN-=1;
-            System.out.println(this.name + " Win");
+            WIN_PLACE+=1;
+            System.out.println(this.name + " Win Место "+ WIN_PLACE);
         }
         cdl2.countDown();
     }
